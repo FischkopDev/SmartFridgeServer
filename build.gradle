@@ -1,0 +1,40 @@
+plugins {
+    id 'java'
+}
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'server.ServerManager'
+        )
+    }
+}
+
+group 'SmartFridgeServer2'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    maven { url "https://jitpack.io" }
+}
+
+dependencies {
+    //Json lib for parsing java objects
+    compile 'com.google.code.gson:gson:2.7'
+
+    //json lib
+    compile('com.googlecode.json-simple:json-simple:1.1.1')
+
+    //connection to client
+    compile 'com.github.DeBukkIt:SimpleServerClient:2.4.1'
+
+    //mysql lib
+    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.45'
+
+    //https://github.com/phxql/argon2-jvm Argon 2 Hash Algorithmus
+    compile 'de.mkammerer:argon2-jvm:2.7'
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
